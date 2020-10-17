@@ -9,6 +9,10 @@
       "android"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osmanbozkurt02/cordova-zebra-printer.git"
+  },
   "keywords": [
     "ecosystem:cordova",
     "cordova-ios",
