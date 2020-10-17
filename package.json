@@ -1,0 +1,22 @@
+{
+  "name": "ca-cleversolutions-zebraprinter",
+  "version": "0.0.5",
+  "description": "Zebra Printer Cordova Plugin for iOS and Android",
+  "cordova": {
+    "id": "ca-cleversolutions-zebraprinter",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Evan Moore",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.0"
+  }
+}

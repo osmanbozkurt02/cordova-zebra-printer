@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="ca-cleversolutions-zebraprinter" version="0.0.5" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ZebraPrinter</name>
+    <js-module name="ZebraPrinter" src="www/ZebraPrinter.js">
+        <clobbers target="cordova.plugins.zebraPrinter" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <preference name="SwiftVersion" value="5.0" />
+            <feature name="ZebraPrinter">
+                <param name="ios-package" value="ZebraPrinterPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+            <array>
+                <string>com.zebra.rawport</string>
+            </array>
+        </config-file>
+        <!-- Zebra SDK -->
+        <header-file src="src/ios/ZebraPrinter/lib/include/DiscoveredPrinter.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/DiscoveredPrinterNetwork.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/FieldDescriptionData.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/FileUtil.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/FormatUtil.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/GraphicsUtil.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/MagCardReader.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/MfiBtPrinterConnection.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/NetworkDiscoverer.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/PrinterStatus.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/PrinterStatusMessages.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/SGD.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/SmartCardReader.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/TcpPrinterConnection.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ToolsUtil.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ZebraErrorCode.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ZebraPrinter.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ZebraPrinterConnection.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ZebraPrinterFactory.h" />
+        <header-file src="src/ios/ZebraPrinter/lib/include/ZplPrintMode.h" />
+        <!-- ZSDK Library -->
+        <source-file src="src/ios/ZebraPrinter/lib/libZSDK_API.a" framework="true" />
+        <!-- Briding File -->
+        <header-file src="src/ios/ZebraPrinter/ZebraPrinter-Bridging-Header.h" type="BridgingHeader" />
+        <!-- Plugin Source -->
+        <source-file src="src/ios/ZebraPrinter/ZebraPrinterPlugin.swift" />
+    </platform>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ZebraPrinter">
+                <param name="android-package" value="com.apache.cordova.plugins.zebra.ZebraPrinter" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        </config-file>
+        <source-file src="src/android/com/apache/cordova/plugins/zebra/ZebraPrinter.java" target-dir="src/com/apache/cordova/plugins/zebra/" />
+        <lib-file src="src/android/lib/ZSDK_ANDROID_API.jar" target="libs/ZSDK_ANDROID_API.jar"/>
+    </platform>
+</plugin>
